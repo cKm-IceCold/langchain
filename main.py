@@ -1,0 +1,15 @@
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    temperature=0.7
+)
+
+response = llm.invoke(
+    "I have a dog and want an African name for it. Suggest five names."
+)
+
+print(response.content)
