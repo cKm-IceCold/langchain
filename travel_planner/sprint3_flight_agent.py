@@ -32,4 +32,4 @@ if __name__ == "__main__":
     )
 
     result = graph.invoke(state)
-    print(result.flight_results)
+    print(result.get("flight_results", []))
