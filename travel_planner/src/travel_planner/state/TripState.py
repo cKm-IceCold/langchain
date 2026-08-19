@@ -37,6 +37,11 @@ class TripState(BaseModel):
     # ===== VALIDATION & FINAL OUTPUT (Sprint 6 onwards) =====
     total_cost: float = Field(default=0.0, description="Total estimated cost")
     is_within_budget: bool = Field(default=True, description="Whether plan fits budget")
+    budget_status: str = Field(default="unknown", description="within_budget, over_budget, or incomplete")
+    cost_data_complete: bool = Field(default=False, description="Whether all required cost sources returned data")
+    cost_breakdown: dict = Field(default_factory=dict, description="Estimated cost by category")
+    budget_message: str = Field(default="", description="Budget validation result")
+    cost_saving_recommendations: List[str] = Field(default_factory=list, description="Ways to reduce trip cost")
     final_plan: str = Field(default="", description="Final formatted trip plan")
     
     class Config:
